@@ -32,10 +32,11 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       username: this.configService.get<string>('DB_NAME'),
       password: this.configService.get<string>('DB_PASSWORD'),
       database: this.configService.get<string>('DB_DATABASE'),
-      ssl: true,
+      ssl: this.configService.get<string>('DB_SSL') === 'true' ? true : false,
       entities: ['dist/**/*.entity.js'],
       migrations: [`${__dirname}/db/migrations/**/*.{j,t}s`],
       synchronize: true,
+      // logging: true,
     };
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
@@ -29,7 +29,7 @@ export class UserService {
     );
 
     if (!user) {
-      throw new Error('User not found in student list');
+      throw new NotFoundException('User not found in student list');
     }
 
     const newUser = this.usersRepository.create({

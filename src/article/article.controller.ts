@@ -32,9 +32,7 @@ export class ArticleController {
     @Body() createArticleDto: CreateArticleDto,
   ) {
     const user = await this.userService.findOne(req.user.username);
-    createArticleDto.authorId = user.id;
-    createArticleDto.course = user.course;
-    return await this.articleService.createArticle(createArticleDto);
+    return await this.articleService.createArticle(createArticleDto, user);
   }
 
   @Put(':id')

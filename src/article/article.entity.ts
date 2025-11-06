@@ -1,11 +1,10 @@
 import {
-  Entity,
-  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
+  Entity,
   ManyToOne,
-  JoinColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { User } from '../user/user.entity';
 
@@ -20,8 +19,9 @@ export class Article {
   @Column('text')
   content: string;
 
-  @ManyToOne(() => User, (user) => user.articles)
-  @JoinColumn({ name: 'authorId' })
+  @ManyToOne(() => User, (user) => user.articles, {
+    nullable: false,
+  })
   user: User;
 
   @Column()

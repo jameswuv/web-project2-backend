@@ -20,6 +20,6 @@ services:
       - '8888:80'
     environment:
       PGADMIN_DEFAULT_EMAIL: jha@wuv.edu
-      PGADMIN_DEFAULT_PASSWORD: Password@123
+      PGADMIN_DEFAULT_PASSWORD: password
     volumes:
       - ~/dev/pgadmin/wuv-web:/var/lib/pgadmin

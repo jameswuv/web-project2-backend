@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Article } from './article.entity';
+import { CreateArticleDto } from './dto/create.article.dto';
+import { User } from 'src/user/user.entity';
 
 @Injectable()
 export class ArticleService {
@@ -18,7 +20,7 @@ export class ArticleService {
   async getArticlesByCourse(course: string) {
     // Placeholder for fetching articles logic
     if (course === '*') {
-      return this.articlesRepository.find({
+      const articles = await this.articlesRepository.find({
         relations: ['user'],
         select: {
           id: true,
@@ -34,6 +36,12 @@ export class ArticleService {
           },
         },
       });
+      // const articles = await this.articlesRepository
+      //   .createQueryBuilder('article')
+      //   .leftJoinAndSelect('article.user', 'user')
+      //   .getMany();
+      // return articles;
+      return articles;
     } else {
       return this.articlesRepository.find({
         where: { course: course },
@@ -62,8 +70,10 @@ export class ArticleService {
     });
   }
 
-  async createArticle(createArticleDto: any) {
+  async createArticle(createArticleDto: CreateArticleDto, user: User) {
     const article = this.articlesRepository.create(createArticleDto);
+    article.user = user;
+    article.course = user.course;
     return this.articlesRepository.save(article);
   }
 

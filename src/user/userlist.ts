@@ -110,10 +110,10 @@ const studentList = [
   { username: '24049', email: 'hy24049@wuv.edu', course: 'BCS104E-Fall2025' },
   { username: '24063', email: 'tn24063@wuv.edu', course: 'BCS104E-Fall2025' },
   { username: '23836', email: 'jha@wuv.edu', course: '*' },
-  { username: '98765', email: 'jha@wuv.edu', course: 'BCS104E-Fall2025' },
-  { username: '87654', email: 'jha@wuv.edu', course: 'BCS104E-Fall2025' },
-  { username: '76543', email: 'jha@wuv.edu', course: 'CS541E-Fall2025' },
-  { username: '65432', email: 'jha@wuv.edu', course: 'CS541E-Fall2025' },
+  { username: '98765', email: '98765@wuv.edu', course: 'BCS104E-Fall2025' },
+  { username: '87654', email: '87654@wuv.edu', course: 'BCS104E-Fall2025' },
+  { username: '76543', email: '76543@wuv.edu', course: 'CS541E-Fall2025' },
+  { username: '65432', email: '65432@wuv.edu', course: 'CS541E-Fall2025' },
 ];
 
 export default studentList;
