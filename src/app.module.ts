@@ -7,6 +7,7 @@ import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmConfigService } from './data-source';
 import { UserModule } from './user/user.module';
+import { ExampleModule } from './example/example.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { UserModule } from './user/user.module';
     AuthModule,
     ArticleModule,
     UserModule,
+    ExampleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
